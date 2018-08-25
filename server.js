@@ -14,7 +14,7 @@ io.on('connection', (client) => {
     client.emit('GameState', gameState)
     setInterval(() => {
         client.emit('GameState', gameState)
-    }, 1000);
+    }, 5000);
   });
 
   client.on('BuildSkeleton', () => {
@@ -22,8 +22,12 @@ io.on('connection', (client) => {
       gameState = {
           skeletonCount: newCount,
       }
-      console.log('building new skelly')
-      client.emit('GameState', gameState);
+      io.emit('GameState', gameState); // tell everyone
+  })
+
+  client.on('Clear', () => {
+    gameState = { skeletonCount: 0 };
+    io.emit('GameState', gameState);
   })
 });
 

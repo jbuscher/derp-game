@@ -8,8 +8,11 @@ function subscribeToGameState(cb) {
 }
 
 function buildSkeleton() {
-    console.log('sending event');
     socket.emit('BuildSkeleton');
 }
 
-export { subscribeToGameState, buildSkeleton }
+function clear() {
+    socket.emit('Clear');
+}
+
+export { subscribeToGameState, buildSkeleton, clear }

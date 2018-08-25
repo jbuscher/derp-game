@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BuildMenu from './components/BuildMenu';
-import Skeleton from './components/Skeleton';
+import FightArea from './components/FightArea';
 import {subscribeToGameState} from './socket/api';
 import './App.css';
 
@@ -21,17 +21,9 @@ class App extends Component {
     return (
       <div className="App">
         <BuildMenu />
-        {this.renderSkeletons()}
+        <FightArea units={this.state.gameState.skeletonCount}/>
       </div>
     );
-  }
-
-  renderSkeletons() {
-    var skeletons = [];
-    for (var i = 0; i < this.state.gameState.skeletonCount; i++) {
-      skeletons.push(<Skeleton key={i}/>);
-    }
-    return skeletons;
   }
 }
 
