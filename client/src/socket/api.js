@@ -1,5 +1,6 @@
 import openSocket from 'socket.io-client';
 const port = process.env.PORT || 5000;
+const url = process.env.NODE_ENV === 'production' ? 'https://derp-game.herokuapp.com:' : 'http://localhost:'
 const socket = openSocket('http://localhost:' + port);
 
 function subscribeToGameState(cb) {
