@@ -3,9 +3,15 @@ import Skeleton from './Skeleton';
 
 export default class FightArea extends Component  {
     render() {
-        return <div>
-            {this.renderUnits()}
-        </div>;
+        return (
+            <div style={playAreaStyles} >
+                {this.renderUnits()}
+            </div>
+        );
+    }
+
+    renderPlayGrid() {
+
     }
 
     renderUnits() {
@@ -16,3 +22,11 @@ export default class FightArea extends Component  {
         return skeletons;
     }
 }
+
+var playAreaStyles = {
+    height: 600,
+    width: 1200,
+    border: 'solid black 1px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+};

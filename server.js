@@ -4,11 +4,14 @@ const path = require('path');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+
+const gameModel = require('./server/GameModel');
+
 const port = process.env.PORT || 5000;
 
-var gameState = {
-  skeletonCount: 0,
-}
+var gameState = gameModel;
+gameState.init();
+
 io.on('connection', (client) => {
   client.on('SubscribeToState', () => {
     client.emit('GameState', gameState)
@@ -18,15 +21,13 @@ io.on('connection', (client) => {
   });
 
   client.on('BuildSkeleton', () => {
-      var newCount = gameState.skeletonCount+1;
-      gameState = {
-          skeletonCount: newCount,
-      }
+      console.log('build Skeleton');
+      gameState.skeltonCount++;
       io.emit('GameState', gameState); // tell everyone
   })
 
   client.on('Clear', () => {
-    gameState = { skeletonCount: 0 };
+    gameState.skeltonCount = 0;
     io.emit('GameState', gameState);
   })
 });

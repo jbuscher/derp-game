@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <BuildMenu />
-        <FightArea units={this.state.gameState.skeletonCount}/>
+        <FightArea units={this.state.gameState.skeltonCount}/>
       </div>
     );
   }
