@@ -5,7 +5,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-const gameModel = require('./server/GameModel');
+const gameModel = require('./server_modules/GameModel');
 
 const port = process.env.PORT || 5000;
 
@@ -33,7 +33,7 @@ io.on('connection', (client) => {
 });
 
 if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
+  // Serve any static files  
   app.use(express.static(path.join(__dirname, 'client/build')));
 
   // Handle React routing, return all requests to React app
