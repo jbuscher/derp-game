@@ -24,7 +24,8 @@
     "dev:server": "cd client && npm run build && cd .. && npm start",
     "start": "node server.js",
     "build-dev": "webpack -d --mode development",
-    "build": "webpack -p --mode production"
+    "build-prod": "webpack -p --mode production",
+    "heroku-postbuild": "yarn build-prod"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
