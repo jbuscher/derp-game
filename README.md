@@ -18,8 +18,8 @@
         ├── components  -  React components
         ├── gameResources  -  (may be deleted/renamed) media and images for graphics of the game
         ├── models  -  data models to represent game state 
-    ├── public  -  public staic files     
-    └── dist  -  (not it git) where webpack builds bundled js to.
+    ├── public  -  public static files     
+    └── dist  -  (not in git) where webpack builds bundled js to.
 </code></pre>
 
 ---
