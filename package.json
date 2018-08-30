@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/jbuscher/derp-game"
   },
-  "main": "src/server.js",
+  "main": "server.js",
   "babel": {
     "presets": [
       "@babel/react",
