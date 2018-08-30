@@ -5,9 +5,10 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-const gameModel = require('./server_modules/GameModel');
+const config = require('./src/config')
+const gameModel = require('./src/models/GameModel');
 
-const port = process.env.PORT || 5000;
+const port = config.port;
 
 var gameState = gameModel;
 gameState.init();
@@ -39,6 +40,14 @@ if (process.env.NODE_ENV === 'production') {
   // Handle React routing, return all requests to React app
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+} else {
+  // dev enviornment
+  console.log("hello");
+  app.use(express.static(path.join(__dirname, 'src', 'public')));
+  app.use(express.static(path.join(__dirname, 'dist')));
+  app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'src', 'views', 'index.html'));
   });
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import idleSkelton from '../resources/Skeleton/GIFS/Skeleton Idle.gif'
+import idleSkelton from '../game-resources/Skeleton/GIFS/Skeleton Idle.gif'
 
 export default class Skeleton extends Component {
     render() {

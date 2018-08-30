@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {buildSkeleton, clear} from '../socket/api';
+import {buildSkeleton, clear} from '../clientApi/api';
 
 export default class Skeleton extends Component {
     render() {

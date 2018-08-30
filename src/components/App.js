@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import BuildMenu from './components/BuildMenu';
-import FightArea from './components/FightArea';
-import {subscribeToGameState} from './socket/api';
-import './App.css';
+import BuildMenu from './BuildMenu';
+import FightArea from './FightArea';
+import {subscribeToGameState} from '../clientApi/api';
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <BuildMenu />
         <FightArea units={this.state.gameState.skeltonCount}/>
       </div>
