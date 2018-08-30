@@ -1,18 +1,19 @@
 import io from 'socket.io-client';
-const port = window.location.href.includes('localhost') ? '5000' : '80'
-const socket = io({port: port});
+
+const port = window.location.href.includes('localhost') ? '5000' : '80';
+const socket = io({ port });
 
 function subscribeToGameState(cb) {
-    socket.on('GameState', gameState => cb(null, gameState));
-    socket.emit('SubscribeToState');
+  socket.on('GameState', gameState => cb(null, gameState));
+  socket.emit('SubscribeToState');
 }
 
 function buildSkeleton() {
-    socket.emit('BuildSkeleton');
+  socket.emit('BuildSkeleton');
 }
 
 function clear() {
-    socket.emit('Clear');
+  socket.emit('Clear');
 }
 
-export { subscribeToGameState, buildSkeleton, clear }
+export { subscribeToGameState, buildSkeleton, clear };
