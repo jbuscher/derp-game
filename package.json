@@ -20,7 +20,7 @@
   },
   "scripts": {
     "server": "nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"webpack -wd\" \"nodemon server.js\"",
+    "dev": "concurrently -r --kill-others-on-fail \"webpack -wd\" \"nodemon server.js\"",
     "dev:server": "cd client && npm run build && cd .. && npm start",
     "start": "node server.js",
     "build-dev": "webpack -d --mode development",
@@ -45,7 +45,7 @@
     "webpack": "^4.17.1"
   },
   "devDependencies": {
-    "concurrently": "^3.6.0",
+    "concurrently": "^4.0.1",
     "eslint": "^5.4.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
